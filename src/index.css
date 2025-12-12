@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-teal: rgb(69 168 135);
+  --color-brand-teal-soft: rgb(69 168 135 / 0.5);
+}

@@ -85,6 +85,48 @@ const MOCK_DAILY_MIX: DailyMix[] = [
       },
     ],
   },
+  {
+    date: "2025-12-12",
+    cleanEnergyPercent: 71,
+    metrics: [
+      {
+        fuel: "gas",
+        percentage: 0.7,
+      },
+      {
+        fuel: "coal",
+        percentage: 0.3,
+      },
+      {
+        fuel: "biomass",
+        percentage: 17.6,
+      },
+      {
+        fuel: "nuclear",
+        percentage: 1.1,
+      },
+      {
+        fuel: "hydro",
+        percentage: 18.1,
+      },
+      {
+        fuel: "imports",
+        percentage: 6.8,
+      },
+      {
+        fuel: "other",
+        percentage: 43.6,
+      },
+      {
+        fuel: "wind",
+        percentage: 4.2,
+      },
+      {
+        fuel: "solar",
+        percentage: 6.5,
+      },
+    ],
+  },
 ];
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
