@@ -1,5 +1,5 @@
 import { useDailyMixQuery } from "@/api/hooks";
-import { ChartCard } from "@/components";
+import { ChartCard, Hero } from "@/components";
 
 export const IndexPage = () => {
   const { data, isLoading, error } = useDailyMixQuery();
@@ -8,12 +8,13 @@ export const IndexPage = () => {
   if (error) return <p>Error loading daily mix data</p>;
 
   return (
-    <div className="min-h-screen w-full">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 bg-sky-100">
+    <main className="min-h-screen w-full">
+      <Hero />
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-3 bg-sky-100">
         {data?.map((dailyMix) => (
           <ChartCard key={dailyMix.date} dailyMix={dailyMix} />
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
