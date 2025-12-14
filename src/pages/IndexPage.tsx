@@ -10,7 +10,7 @@ export const IndexPage = () => {
   return (
     <main className="min-h-screen w-full">
       <Hero />
-      <section className="grid grid-cols-1 gap-4 lg:grid-cols-3 bg-sky-100">
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-3 bg-gradient-to-b from-white to-sky-200 p-4">
         {data?.map((dailyMix) => (
           <ChartCard key={dailyMix.date} dailyMix={dailyMix} />
         ))}
