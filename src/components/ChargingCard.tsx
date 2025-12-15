@@ -1,8 +1,16 @@
 import { useState } from "react";
 import carChargingImg from "@/assets/images/car-charging.png";
+import type { ChargingWindowResult } from "@/types";
+import { ChargingWindow } from "./ChargingWindow";
 
 export const ChargingCard = () => {
   const [hours, setHours] = useState<string>("");
+  const result: ChargingWindowResult = {
+    startDate: new Date(),
+    endDate: new Date(),
+    averageCleanEnergyUsage: 68,
+  };
+  // const result: ChargingWindowResult | null = null
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -12,7 +20,7 @@ export const ChargingCard = () => {
   return (
     <section className="w-full px-4 py-10 bg-sky-100">
       <article className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-lg border border-emerald-600 border-2 bg-white p-4 md:grid-cols-3 md:p-6">
-        <figure className="md:col-span-1">
+        <figure className="md:col-span-1 flex items-center ">
           <div className="w-fullrounded-md">
             <img src={carChargingImg} alt="Electric car charging" className="h-full w-full" />
           </div>
@@ -51,6 +59,7 @@ export const ChargingCard = () => {
                 Calculate
               </button>
             </div>
+            {result && <ChargingWindow result={result} />}
           </form>
         </div>
       </article>
