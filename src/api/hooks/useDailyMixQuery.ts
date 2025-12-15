@@ -1,6 +1,6 @@
 import type { DailyMix } from "@/types";
 import { useQuery } from "@tanstack/react-query";
-import { fetchDailyMixMock } from "./mock-daily-mix";
+import { EnergyApi } from "../energy.api";
 
 export const energyQueryKeys = {
   dailyMix: ["energy", "dailyMix"] as const,
@@ -9,7 +9,7 @@ export const energyQueryKeys = {
 export const useDailyMixQuery = () => {
   return useQuery<DailyMix[]>({
     queryKey: energyQueryKeys.dailyMix,
-    queryFn: fetchDailyMixMock,
+    queryFn: EnergyApi.getDailyMix,
     staleTime: 60_000,
   });
 };
