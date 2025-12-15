@@ -6,7 +6,7 @@ interface ChargingWindowProps {
 
 export const ChargingWindow = ({ result }: ChargingWindowProps) => {
   return (
-    <article className="mt-4 rounded-md border border-slate-200 bg-white sm:p-4 p-2">
+    <div className="mt-4 rounded-md border border-slate-200 bg-white sm:p-4 p-2">
       <h3 className="text-sm font-semibold">Recommended charging window</h3>
 
       <dl className="mt-3 grid grid-cols-3 sm:gap-4 gap-2">
@@ -25,6 +25,6 @@ export const ChargingWindow = ({ result }: ChargingWindowProps) => {
           <dd className="mt-1 text-sm  font-semibold">{result.averageCleanEnergyUsage}%</dd>
         </div>
       </dl>
-    </article>
+    </div>
   );
 };

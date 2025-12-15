@@ -29,13 +29,13 @@ export const ChartCard = ({ dailyMix }: ChartCardProps) => {
   }));
 
   return (
-    <div className="w-full rounded-lg mb-5">
-      <p className="text-sm text-slate-600 w-full text-center font-bold">{dailyMix.date}</p>
-      <div className="min-h-[250px] sm:h-full">
+    <div className="w-full rounded-lg">
+      <p className="text-sm text-slate-600 w-full text-center font-bold mb-3">{dailyMix.date}</p>
+      <div className="min-h-[220px] sm:h-full md:min-h-[280px] lg:min-h-[200px]">
         <ResponsivePie
           data={data}
           colors={{ datum: "data.color" }}
-          margin={{ top: 20, bottom: 20 }}
+          margin={{ top: 25, bottom: 25 }}
           innerRadius={0.5}
           padAngle={1.2}
           cornerRadius={3}
@@ -52,7 +52,7 @@ export const ChartCard = ({ dailyMix }: ChartCardProps) => {
           valueFormat={(v) => `${v}%`}
         />
       </div>
-      <p className="text-sm text-slate-500 w-full text-center font-bold">
+      <p className="text-sm text-slate-500 w-full text-center font-bold mt-2">
         Clean energy: {dailyMix.cleanEnergyPercent}%
       </p>
     </div>

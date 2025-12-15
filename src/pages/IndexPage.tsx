@@ -10,10 +10,13 @@ export const IndexPage = () => {
   return (
     <main className="min-h-screen w-full">
       <Hero />
-      <section className="grid grid-cols-1 gap-4 lg:grid-cols-3 bg-gradient-to-b from-emerald-50 via-white to-sky-100 p-4">
-        {data?.map((dailyMix) => (
-          <ChartCard key={dailyMix.date} dailyMix={dailyMix} />
-        ))}
+      <section className="w-full flex flex-col items-center justify-center bg-gradient-to-b from-emerald-50 via-white to-sky-100 p-4 sm:pb-15">
+        <h1 className="font-bold text-lg text-left w-full max-w-7xl mb-4">Daily Energy Mix</h1>
+        <div className="w-full max-w-7xl grid grid-cols-1 gap-30 lg:grid-cols-3 lg:gap-20 md:grid-cols-1">
+          {data?.map((dailyMix) => (
+            <ChartCard key={dailyMix.date} dailyMix={dailyMix} />
+          ))}
+        </div>
       </section>
       <ChargingCard />
     </main>
