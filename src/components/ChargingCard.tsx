@@ -54,7 +54,7 @@ export const ChargingCard = () => {
 
               <button
                 type="submit"
-                className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 focus:ring-emerald-600"
+                className="rounded-md bg-emerald-600 px-4 py-2 text-sm outline-none font-semibold text-white hover:bg-emerald-700 focus:ring-emerald-600"
               >
                 Calculate
               </button>
