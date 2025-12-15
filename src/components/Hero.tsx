@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-emerald-50 to-white">
+    <section className="w-full bg-emerald-50 to-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
         <div className="max-w-2xl">
           <p className="text-sm font-medium text-emerald-700">UK Clean Energy Forecast</p>
