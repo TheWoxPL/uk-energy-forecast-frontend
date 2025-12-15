@@ -1,7 +1,7 @@
 export const Hero = () => {
   return (
     <section className="w-full bg-emerald-50 to-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl py-12 sm:py-16">
         <div className="max-w-2xl">
           <p className="text-sm font-medium text-emerald-700">UK Energy Forecast</p>
 
