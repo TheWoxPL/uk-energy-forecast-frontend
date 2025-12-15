@@ -19,7 +19,7 @@ export const ChargingCard = () => {
 
   return (
     <section className="w-full px-4 py-10 bg-sky-100 flex flex-col items-center">
-      <h1 className="font-bold text-lg mb-4 max-w-7xl">When charge your car?</h1>
+      <h1 className="font-bold text-lg mb-4 max-w-7xl text-left w-full">When charge your car?</h1>
       <article className="mx-auto grid max-w-7xl grid-cols-1 gap-6 rounded-lg border border-emerald-600 border-2 bg-white p-4 md:grid-cols-3 md:p-6">
         <figure className="md:col-span-1 flex items-center ">
           <div className="w-full rounded-md">
