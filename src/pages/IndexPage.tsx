@@ -1,12 +1,12 @@
 import { useDailyMixQuery } from "@/api/hooks";
-import { ChargingCard, ChartCard, Hero, LoadingScreen } from "@/components";
+import { ChargingCard, ChartCard, ErrorScreen, Hero, LoadingScreen } from "@/components";
 import { motion } from "framer-motion";
 
 export const IndexPage = () => {
-  const { data, isLoading, error } = useDailyMixQuery();
+  const { data, isLoading, error, refetch } = useDailyMixQuery();
 
   if (isLoading) return <LoadingScreen />;
-  if (error) return <p>Error loading daily mix data</p>;
+  if (error) return <ErrorScreen message={error.message} onRetry={refetch} />;
 
   return (
     <motion.main

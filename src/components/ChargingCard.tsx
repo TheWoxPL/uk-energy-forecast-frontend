@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import carChargingImg from "@/assets/images/car-charging.png";
 import { ChargingWindow } from "./ChargingWindow";
 import { useChargingWindowQuery } from "@/api/hooks";
+import { ErrorScreen } from "./ErrorScreen";
+import { createPortal } from "react-dom";
 
 export const ChargingCard = () => {
   const [hoursInput, setHoursInput] = useState<string>("");
   const [submittedHours, setSubmittedHours] = useState<number>(0);
-  const { data, isLoading, isError, refetch, isFetching } = useChargingWindowQuery(
+  const { data, isLoading, isError, error, refetch, isFetching } = useChargingWindowQuery(
     Number(submittedHours),
     {
       enabled: false,
@@ -30,7 +32,15 @@ export const ChargingCard = () => {
     }
   };
 
-  if (isError) return <div>There is an error.</div>;
+  if (isError) {
+    return createPortal(
+      <div className="fixed inset-0 z-50 bg-white">
+        {" "}
+        <ErrorScreen message={error.message} onRetry={() => refetch()} />
+      </div>,
+      document.body,
+    );
+  }
 
   return (
     <section className="w-full px-4 py-10 bg-sky-100 flex flex-col items-center">

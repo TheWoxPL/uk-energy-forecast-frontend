@@ -36,7 +36,7 @@ export const LoadingScreen = () => {
             className="flex flex-col items-center gap-2"
           >
             <p className="text-xs text-slate-400 max-w-xs text-center">
-              This might take up to 30 seconds if the server was sleeping (free tier hosting).
+              This might take up to 60 seconds if the server was sleeping (free tier hosting).
             </p>
           </motion.div>
         )}
