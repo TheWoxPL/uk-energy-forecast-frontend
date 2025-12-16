@@ -31,7 +31,7 @@ export const ChartCard = ({ dailyMix }: ChartCardProps) => {
   return (
     <div className="w-full rounded-lg">
       <p className="text-sm text-slate-600 w-full text-center font-bold mb-3">{dailyMix.date}</p>
-      <div className="min-h-[220px] sm:h-full md:min-h-[280px] lg:min-h-[200px]">
+      <div className="min-h-[220px] sm:h-full md:min-h-[280px] lg:min-h-[190px]">
         <ResponsivePie
           data={data}
           colors={{ datum: "data.color" }}
