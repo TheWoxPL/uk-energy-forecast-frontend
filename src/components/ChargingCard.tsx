@@ -1,21 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import carChargingImg from "@/assets/images/car-charging.png";
-import type { ChargingWindowResult } from "@/types";
 import { ChargingWindow } from "./ChargingWindow";
+import { useChargingWindowQuery } from "@/api/hooks";
 
 export const ChargingCard = () => {
-  const [hours, setHours] = useState<string>("");
-  const result: ChargingWindowResult = {
-    startDate: new Date(),
-    endDate: new Date(),
-    averageCleanEnergyUsage: 68,
-  };
-  // const result: ChargingWindowResult | null = null
+  const [hoursInput, setHoursInput] = useState<string>("");
+  const [submittedHours, setSubmittedHours] = useState<number>(0);
+  const { data, isLoading, isError, refetch, isFetching } = useChargingWindowQuery(
+    Number(submittedHours),
+    {
+      enabled: false,
+    },
+  );
+
+  useEffect(() => {
+    if (submittedHours > 0) {
+      refetch();
+    }
+  }, [submittedHours, refetch]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Charging duration (hours):", hours);
+    const val = Number(hoursInput);
+
+    if (val >= 1 && val <= 6) {
+      setSubmittedHours(val);
+    } else {
+      alert("Proszę wpisać liczbę godzin od 1 do 6");
+    }
   };
+
+  if (isError) return <div>There is an error.</div>;
 
   return (
     <section className="w-full px-4 py-10 bg-sky-100 flex flex-col items-center">
@@ -51,20 +66,21 @@ export const ChargingCard = () => {
                 step={1}
                 max={6}
                 required
-                value={hours}
-                onChange={(e) => setHours(e.target.value)}
+                value={hoursInput}
+                onChange={(e) => setHoursInput(e.target.value)}
                 placeholder="e.g. 2"
                 className="w-full rounded-md border border-slate-300 px-3 py-2 text-slate-900 outline-none focus:border-emerald-600 sm:max-w-xs"
               />
 
               <button
+                disabled={isLoading || isFetching}
                 type="submit"
                 className="rounded-md bg-emerald-600 px-4 py-2 text-sm outline-none font-semibold text-white hover:bg-emerald-700 focus:ring-emerald-600"
               >
-                Calculate
+                {isLoading || isFetching ? "calculating..." : "Find"}
               </button>
             </div>
-            {result && <ChargingWindow result={result} />}
+            {data && <ChargingWindow result={data} />}
           </form>
         </div>
       </article>

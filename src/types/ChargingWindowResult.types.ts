@@ -1,5 +1,5 @@
 export interface ChargingWindowResult {
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   averageCleanEnergyUsage: number;
 }
