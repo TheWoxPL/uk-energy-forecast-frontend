@@ -18,7 +18,7 @@ export const IndexPage = () => {
       <Hero />
       <section className="w-full flex flex-col items-center justify-center bg-gradient-to-b from-emerald-50 via-white to-sky-100 p-4 sm:pb-15">
         <h1 className="font-bold text-lg text-left w-full max-w-7xl mb-4">Daily Energy Mix</h1>
-        <div className="w-full max-w-7xl grid grid-cols-1 gap-15 lg:grid-cols-3 lg:gap-5 md:grid-cols-1">
+        <div className="w-full max-w-7xl grid grid-cols-1 gap-15 lg:grid-cols-3 lg:gap-15 md:grid-cols-1">
           {data?.map((dailyMix) => (
             <ChartCard key={dailyMix.date} dailyMix={dailyMix} />
           ))}
