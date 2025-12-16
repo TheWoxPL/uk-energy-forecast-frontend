@@ -1,23 +1,27 @@
 import type { ChargingWindowResult } from "@/types";
+import { format } from "date-fns";
 
 interface ChargingWindowProps {
   result: ChargingWindowResult;
 }
 
 export const ChargingWindow = ({ result }: ChargingWindowProps) => {
+  const formatDate = (dateString: string) => {
+    return format(new Date(dateString), "dd.MM.yyyy HH:mm");
+  };
   return (
     <div className="mt-4 rounded-md border border-slate-200 bg-white sm:p-4 p-2">
-      <h3 className="text-sm font-semibold">Recommended charging window</h3>
+      <h3 className="text-sm font-semibold">Recommended charging window (in next 48 hours)</h3>
 
       <dl className="mt-3 grid grid-cols-3 sm:gap-4 gap-2">
         <div className="rounded-md bg-slate-50 p-2 sm:w-full text-xs">
           <dt className="font-medium text-slate-500">Start</dt>
-          <dd className="mt-1 text-sm font-semibold">{result.startDate.toLocaleString()}</dd>
+          <dd className="mt-1 text-sm font-semibold">{formatDate(result.startDate)}</dd>
         </div>
 
         <div className="rounded-md bg-slate-50 p-2 sm:w-full text-xs">
           <dt className="font-medium text-slate-500">End</dt>
-          <dd className="mt-1 text-sm font-semibold">{result.endDate.toLocaleString()}</dd>
+          <dd className="mt-1 text-sm font-semibold">{formatDate(result.endDate)}</dd>
         </div>
 
         <div className="rounded-md bg-slate-50 p-2 sm:w-full text-xs">
